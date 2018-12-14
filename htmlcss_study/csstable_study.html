@@ -1,0 +1,180 @@
+<!doctype html>
+
+<!-- CSS는 웹페이지를 꾸미기 위해 생김 -->
+<!-- HTML은 정보에 집중, CSS은 디자인에 집중 -->
+<!-- 한 번에 디자인을 바꿀 수 있다. (코드수가 많아질 때 효과적) -->
+
+<html>
+
+<head>
+    <title>CSS & Table</title>
+    <meta charset="utf-8">
+    <style>
+       h1{
+          font-size: 30px;
+          text-align: center;
+          border:5px solid black;
+          padding:20px;
+          margin:5px;
+          width:400px;
+      }
+      .hohoho{
+          font-size: 15px;
+          color:red;
+      }
+      h2{
+          border-bottom:5px solid gray;
+          margin:0;
+          padding:20px;
+      }
+      ol{
+          border-right:1px solid gray;
+          width:200px;
+          margin:0;
+          padding:10px;
+      }
+      td{
+          text-align: center;
+      }
+      #hahaha{
+          display:grid;
+          grid-template-columns: 250px 1fr;
+      }
+      #hahaha ol{
+          padding-left:33px;
+      }
+      #hehehe {
+          padding-left:10px;
+      }
+      @media(max-width:460px){
+          #hehehe{
+              display:none;
+          }
+      }
+    </style>
+    <!-- style : 이 안에 있는 것은 CSS문법이니 CSS언어의 문법에 맞게 해석해라 -->
+    <!-- h1{} : 페이지에 있는 모든 a에 적용 -->
+    <!-- 밑과 중복되면 h1,td{} 이런 형식으로 같이 쓸 수 있음 -->
+</head>
+
+<body>
+
+<h1>PL 11라운드까지 순위표</h1>
+<h1 class="hohoho">TOP5까지</h1> <!-- class : 그룹으로 묶음 -->
+<h4>TOP5 아래로는 중요하지 않습니다!</h4>
+<!-- h1태그는 화면 전체를 사용함(줄바꿈이 됨) / 자기 부피만 쓰는 태그 ex)a -->
+<!-- 전체 : block / 자기부피 : inline element -->
+<!-- block -> inline : display:inline 반대는 :block 지우기는 :none -->
+
+<p>
+<div id="hahaha">
+    <div>
+        <ol>
+            <strong>순위를 정하는 기준</strong>
+            <li> 승점순 </li>
+            <li> 승점이 같을경우 골득실로 </li>
+            <li> 승수가 더 많거나, 상대전적 </li>
+        </ol>
+    </div>
+    <div class = "hehehe">
+        잉글랜드의 프리미어리그는 20개 소속 클럽이 홈앤드어웨이 방식으로 클럽당 38경기를 치르며, 승리하면 3점, 비기면 1점, 지면 0점을 주어 총점이 가장 높은 클럽이 우승하게 된다. 보통 8월에 시작해서 다음해 5월까지 열린다.
+        <br>
+        정규 시즌이 끝난 후 1부리그 하위 3개 클럽이 2부리그로 떨어지고 2부리그의 상위 2개 클럽이 1부리그로 오른다. 2부리그의 3·4·5·6위 4개 클럽은 플레이오프를 거쳐 승리한 클럽이 1부리그에 오르게 된다.
+    </div>
+</div>
+</p>
+<!-- div(block),span(inline) 아무 의미없는 테그 감싸줌 -->
+
+
+<p>
+    <!-- table은 HTML에서 표를 나타내고 싶을 때 사용하는 것 -->
+    <table border = "1" width = "400" summary = "18-19 PL TOP5 TEAMS" cellpadding = "0" cellspacing = "1" bgcolor = gray>
+        <!-- border: 선, width: 크기, summary: 표에 대한 설명(표현x), cellpadding: 셀 사이의 여백, cellspacint: 셀 안 여백, bgcolor: 배경색, align: 표 정렬 -->
+        <caption> <!-- 표의 제목을 의미 (option) -->
+            <strong>팀 순위</strong>
+        </caption>
+        <colgroup> <!-- td 요소들을 열로 묶어 제어할 때 사용 -->
+            <col width = "112" />
+            <col width = "532" />
+            <col width = "112" />
+            <col width = "202" />
+            <col width = "112" />
+            <col width = "112" />
+            <col width = "112" />
+            <col width = "202" />
+        </colgroup>
+        <thead> <!-- 표의 주제를 의미하는 요소 (option) -->
+            <tr> <!-- tablerow의 약자. 표의 행 한 줄을 만들어 주는 요소 -->
+                <th scope="col">순위</th> <!-- tablehead의 약자. 각 열에 대한 제목을 의미하는 요소 -->
+                <th scope="col">팀</th> <!-- scope: th,td의 요소가 col에 속하는지 row에 속하는지 알려주는 요소 -->
+                <th scope="col">승점</th>
+                <th scope="col">경기수</th>
+                <th scope="col">승</th>
+                <th scope="col">무</th>
+                <th scope="col">패</th>
+                <th scope="col">골득실</th>
+            </tr>
+        </thead>
+        <tfoot> <!-- 표의 비고, 참고 내용을 의미하는 요소 -->
+            <tr>
+                <th colspan="8">Premier League</th> <!-- colspan: 가로셀 병합, rowspan: 세로셀 병합 -->
+            </tr>
+        </tfoot>
+        <tbody> <!-- 표의 내용을 의미하는 요소. 코딩순서는 thead, tfoot, tbody 순 -->
+            <tr>
+                <th scope="row">1</th>
+                <td style = "text-align: left">맨시티</td> <!-- tabledata의 약자. 각 열에 대한 내용을 의미하는 요소 -->
+                <td>29</td>
+                <td>11</td>
+                <td>9</td>
+                <td>2</td>
+                <td>0</td>
+                <td>29</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td style = "text-align: left">첼시</td>
+                <td>27</td>
+                <td>11</td>
+                <td>8</td>
+                <td>3</td>
+                <td>0</td>
+                <td>19</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td style = "text-align: left">리버풀</td>
+                <td>27</td>
+                <td>11</td>
+                <td>8</td>
+                <td>3</td>
+                <td>0</td>
+                <td>16</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td style = "text-align: left">토트넘</td>
+                <td>24</td>
+                <td>11</td>
+                <td>8</td>
+                <td>0</td>
+                <td>3</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td style = "text-align: left">아스널</td>
+                <td>23</td>
+                <td>11</td>
+                <td>7</td>
+                <td>2</td>
+                <td>2</td>
+                <td>11</td>
+            </tr>           
+        </tbody>
+
+    </table>
+</p>
+</body>
+
+</html>
